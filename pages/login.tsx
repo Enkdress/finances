@@ -18,7 +18,7 @@ const LoginPage = () => {
       <Head>
         <title>Login - Finance Manager</title>
       </Head>
-      <div className="border w-1/3 border-slate-700 p-10 rounded-md">
+      <div className="border w-full md:w-1/3 border-slate-700 p-10 rounded-md">
         <Auth
           supabaseClient={supabase}
           appearance={{ theme: ThemeSupa }}
