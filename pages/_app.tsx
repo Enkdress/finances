@@ -1,3 +1,4 @@
+import Layout from "@/components/ui/Layout";
 import Navbar from "@/components/ui/Navbar";
 import { Poppins } from "@next/font/google";
 import { createBrowserSupabaseClient } from "@supabase/auth-helpers-nextjs";
@@ -33,13 +34,15 @@ export default function App({ Component, pageProps }: AppProps) {
       supabaseClient={supabase}
       initialSession={pageProps.initialSession}
     >
-      <Navbar />
-      <main
-        className={`${poppins.variable} font-sans h-screen dark:bg-gray-900 dark:text-gray-200`}
-      >
-        <Toaster />
-        <Component {...pageProps} />
-      </main>
+      <Layout>
+        <Navbar />
+        <main
+          className={`${poppins.variable} font-sans h-screen dark:bg-gray-900 dark:text-gray-200`}
+        >
+          <Toaster />
+          <Component {...pageProps} />
+        </main>
+      </Layout>
     </SessionContextProvider>
   );
 }

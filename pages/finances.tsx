@@ -18,10 +18,10 @@ import { useState } from "react";
 export const getServerSideProps = async (
   ctx: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
 ) => {
-  const session = await getServerSession(ctx);
-  if (!session) return session;
+  const response = await getServerSession(ctx);
+  if (response?.error) return response.session;
 
-  const { data } = await getMyExpenses(session as Session);
+  const { data } = await getMyExpenses(response.session as Session);
 
   return { props: { expenses: data } };
 };

@@ -5,6 +5,7 @@ import Avatar from "./Avatar";
 import Button from "./Button";
 import { Fragment } from "react";
 import { useRouter } from "next/router";
+import { useSession } from "@supabase/auth-helpers-react";
 
 const play = Play({
   subsets: ["latin"],
@@ -13,12 +14,17 @@ const play = Play({
 });
 
 const Navbar = () => {
+  const session = useSession();
   const router = useRouter();
 
   const handleLogout = () => {
     supabase.auth.signOut();
     router.push("/");
   };
+
+  if (!session?.user) {
+    return null;
+  }
 
   return (
     <header

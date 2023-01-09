@@ -14,12 +14,15 @@ export const getServerSession = async (
 
   if (!session) {
     return {
-      redirect: {
-        destination: "/",
-        permanent: false,
+      error: true,
+      session: {
+        redirect: {
+          destination: "/login",
+          permanent: false,
+        },
       },
     };
   }
 
-  return session;
+  return { error: false, session };
 };
