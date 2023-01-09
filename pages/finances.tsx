@@ -21,6 +21,7 @@ export const getServerSideProps = async (
 ) => {
   const response = await getServerSession(ctx);
 
+  if (response?.error) return response.session;
 
   const { data } = await getMyExpenses(response.session as Session);
 
