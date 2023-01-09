@@ -3,18 +3,21 @@ import { Auth, ThemeSupa } from "@supabase/auth-ui-react";
 import { supabase } from "lib/supabase";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const LoginPage = () => {
   const session = useSession();
   const router = useRouter();
 
-  if (session) {
-    router.push("/");
-    return null;
-  }
+  useEffect(() => {
+    if (session) {
+      router.push("/");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session]);
 
   return (
-    <div className="px-5 md:px-0 w-full h-full flex justify-center items-center">
+    <div className="px-2 md:px-w-full h-full flex justify-center items-center">
       <Head>
         <title>Login - Finance Manager</title>
       </Head>
