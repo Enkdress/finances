@@ -14,6 +14,7 @@ import type {
 } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { useState } from "react";
+import Head from "next/head";
 
 export const getServerSideProps = async (
   ctx: GetServerSidePropsContext<ParsedUrlQuery, PreviewData>
@@ -44,6 +45,9 @@ const Finances: NextPage<
 
   return (
     <>
+      <Head>
+        <title>Home - Finance Manager</title>
+      </Head>
       <section className="w-4/5 md:w-8/12 mx-auto">
         <div className="pt-5">
           <h1 className="text-lg text-center md:text-left md:text-3xl mb-5 font-semibold">
