@@ -14,7 +14,7 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="w-full h-full flex justify-center items-center">
+    <div className="px-5 md:px-0 w-full h-full flex justify-center items-center">
       <Head>
         <title>Login - Finance Manager</title>
       </Head>
